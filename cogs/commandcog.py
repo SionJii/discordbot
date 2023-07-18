@@ -9,8 +9,12 @@ class commandcog(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def 지연시간(self, ctx):
-        await ctx.send(f'지연시간: {round(self.bot.latency * 1000)}ms')
+    async def ping(self, ctx):
+        await ctx.send(f'pong! {round(self.bot.latency * 1000)}ms')
+
+    @commands.command()
+    async def purge(self, ctx, limit: int):
+        await ctx.channel.purge(limit=limit)
 
     @commands.command()
     async def 마소님(self, ctx, *, question):
@@ -22,18 +26,6 @@ class commandcog(commands.Cog):
             '내 대답은 "아니"야.', '내 정보원이 아니라는군.', '그럴 가능성이 낮아.', '매우 의심스러워.'
         ]
         await ctx.send(f'질문: {question}\n대답: {random.choice(responses)}')
-
-    @commands.command()
-    async def 정주희(self, ctx):
-        await ctx.send(f'리바이 킬ㄹr..☆')
-
-    @commands.command()
-    async def 심규리(self, ctx):
-        await ctx.send(f'유기현 wAiFu')
-
-    @commands.command()
-    async def 리바이(self, ctx):
-        await ctx.send(f'제발 히히 나좀 히히 가만히 히히 냅둬라 히히 ...')
 
     @commands.command()
     async def kick(self, ctx, member: discord.Member, *, reason=None):

@@ -4,7 +4,7 @@ from discord.ext import commands
 from youtube_dl import YoutubeDL
 
 
-class music(commands.Cog):
+class musiccog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -99,4 +99,4 @@ class music(commands.Cog):
 
 
 def setup(bot):
-    bot.add_cog(music(bot))
+    bot.add_cog(musiccog(bot))
